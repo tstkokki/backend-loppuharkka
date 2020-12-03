@@ -1,5 +1,27 @@
 var createError = require('http-errors');
 var express = require('express');
+
+//mongodb set up
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+const url = 'mongodb://localhost:27017/ruoskadb';
+
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    autoIndex: false, // don't build indexes
+    poolSize: 10, // maintain up to 10 socket connections
+    serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
+    socketTimeoutMS: 45000, //close sockets after 45s of inactivity
+    family: 4 // use IPv4, skip IPv6
+}
+
+var connect = mongoose.connect(url, options);
+
+const {body, validationResult} = require('express-validator');
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -36,6 +58,13 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+
+connect.then((db) =>{
+  console.log("DB connection established");
+}).catch((err)=>{
+  console.log(err);
 });
 
 module.exports = app;
