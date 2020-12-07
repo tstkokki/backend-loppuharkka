@@ -60,11 +60,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-connect.then((db) =>{
-  console.log("DB connection established");
-}).catch((err)=>{
-  console.log(err);
-});
+app.use('/', ()=>{
+  connect.then((db)=>{
+    console.log("Connection established");
+  }).catch((err)=>{
+    console.log(err);
+  })
+})
 
 module.exports = app;
