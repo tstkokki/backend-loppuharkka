@@ -26,6 +26,15 @@ app.get('/messages', (req, res)=>{
     });
 });
 
+app.get('/messages/:topics', (req, res)=>{
+    Messages.GetTopics().then((topics)=>{
+        res.json(topics);
+    }).catch((err)=>{
+        res.status(500);
+        res.json(err);
+    });
+})
+
 app.post('/messages', (req, res)=>{
     console.log(req.body);
     Messages.InsertMsg(req.body).then((message)=>{
@@ -33,7 +42,7 @@ app.post('/messages', (req, res)=>{
     }).catch((err)=>{
         res.status(500);
         res.json(err);
-    })
+    });
 });
 
 const port = process.env.PORT || 3000;

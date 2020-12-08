@@ -4,7 +4,7 @@
 }
 
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #1F213A;
 }
@@ -13,11 +13,30 @@ a {
   color: #00B7FF;
 }
 
+.media > img {
+  max-width: 50%;
+  display: block;
+  margin-left: 25%;
+}
+
 div {
   border-radius: 8px;
   background-color: #3B3E6D;
   padding: 8px;
   margin-bottom: 5px;
+}
+
+hr{
+  border-top: 1px solid #1F213A;
+  width: 100%;
+}
+
+.ruoskaLight {
+  background-color: #565B9F!important;
+}
+
+.bg_content{
+  background-color: #1F213A;
 }
 
 .ruoskButton{
@@ -33,4 +52,21 @@ div {
 .ruoskButton:hover{
   background-color: #1F213A;
   transition: 0.3s;
+}
+
+button:focus{
+  outline:none;
+}
+
+.media{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.media-body{
+  width: 100%;
+}
+
+.media-body > small{
+  float: right;
 }
