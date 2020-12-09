@@ -59,11 +59,10 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue';
 
-const API_URL = 'http://localhost:3000/messages';
-const API_topicurl = 'http://localhost:3000/messages/:topics';
+const API_URL = 'http://localhost:3000/messages/:filter';
 
 export default {
-  name: 'Home',
+  name: 'T_Filter',
   data: () => ({
     showMessageForm: false,
     error: '',
@@ -83,17 +82,6 @@ export default {
     reversedMessages() {
       return this.messages.slice().reverse();
     }
-  },
-  mounted() {
-    fetch(API_URL).then((response) => response.json())
-      .then((result) => {
-        this.messages = result;
-      });
-    fetch(API_topicurl).then((t_response) => t_response.json())
-      .then((t_result) => {
-        this.topics = t_result;
-        console.log(this.topics);
-      });
   },
   methods: {
     addMessage() {

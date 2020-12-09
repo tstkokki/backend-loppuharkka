@@ -1,11 +1,19 @@
 <template>
   <div class="bg_content">
+    <form @submit.prevent="addMessage">
+      <div class="form-group">
+        <label for="topic">Topic</label>
+        <input v-model="message.topic" type="text" class="form-control"
+        id="topic" placeholder="Enter topic" required>
+      <button type="submit" class="ruoskButton">Create Topic</button>
+      </div>
+    </form>
     <div>
       <ul class="list-unstyled">
         <li class="media" v-for="message in reversedMessages" :key="message._id">
           <div class="media-body">
             <small>{{message.created}}</small>
-            <h5 class="mt-0 mb-1">{{message.topic}}</h5>
+            <button class="mt-0 mb-1 ruoskButton" @click="openTopic(message.topic)">{{message.topic}}</button>
             <br>
           </div>
           <br>
@@ -30,6 +38,7 @@ const API_URL = 'http://localhost:3000/messages/:topics';
 export default {
   name: 'Topic',
   data: () => ({
+    error: '',
     topics: [],
     message: {
       topic: '',
@@ -68,6 +77,10 @@ export default {
         console.log(result);
       });
     },
+    openTopic(element){
+      console.log(element);
+      window.location.href = `/filter?tid=${element}`;
+    }
   },
 };
 </script>

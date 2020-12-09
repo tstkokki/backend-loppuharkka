@@ -54,6 +54,11 @@ hr{
   transition: 0.3s;
 }
 
+select, option, input, textarea{
+  background-color: #1F213A!important;
+  color: #f8f8f8!important;
+}
+
 button:focus{
   outline:none;
 }
