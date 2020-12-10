@@ -11,7 +11,6 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "express-validator": "^6.7.0",
-    "express-vue": "^5.15.3",
     "http-errors": "^1.8.0",
     "joi": "^17.3.0",
     "mongodb": "^3.6.3",
