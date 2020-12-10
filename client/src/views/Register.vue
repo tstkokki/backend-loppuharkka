@@ -14,7 +14,7 @@
         <label for="message">Password</label>
         <input v-model="session_user.password" class="form-control" type="password" name="password" id="password" required>
       </div>
-      <button type="submit" class="ruoskButton">Login</button>
+      <button type="submit" class="ruoskButton">Signup</button>
     </form>
   </div>
 </div>
@@ -22,10 +22,10 @@
 
 <script>
 
-const API_login_URL = 'http://localhost:3000/messages/login';
+const API_signup_URL = 'http://localhost:3000/messages/register';
 
 export default {
-    name: 'Login',
+    name: 'Register',
     data: () => ({
         error: '',
         session_user: {
@@ -35,7 +35,7 @@ export default {
     }),
     methods: {
         doLogin() {
-            fetch(API_login_URL, {
+            fetch(API_signup_URL, {
                 method: 'POST',
                 body: JSON.stringify(this.session_user),
                 headers: {
@@ -44,9 +44,6 @@ export default {
             }).then((response) => response.json())
             .then((result) => {
                 console.log(result);
-                if (result.message === 'RUOSKA App!') {
-                  window.location = '/login';
-                }
             });
         }
     }
