@@ -29,11 +29,20 @@ router.POST('/', function(req, res, next) {
 
   connect.then((db) =>{
     Users.insertMany([{
-      username: req.body.msg
+      username: "Oiva",
+      password: "Oivallinen"
     }])
-  })
-
-  res.send('index', );
+  }).then((_user)=>{
+    return Users.find({}).exec();
+  }).then((p_users)=>{
+    p_users.forEach(user => {
+      console.log(user);
+    });
+  }).catch((err)=>{
+    console.log(err);
+  });
+  
+  res.send('index', {msg_content: 'MORO'});
 });
 
 module.exports = router;

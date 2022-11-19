@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', ()=>{
-  res.render('index', { title: 'ruoskApp', description: 'The express solution to project management!',  });
+  res.render('index', { title: 'ruoskApp', description: 'The express solution to lol project management!' });
 });
 
 module.exports = router;
