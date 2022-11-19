@@ -1,0 +1,80 @@
+*{
+  color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #1F213A;
+  height: 100%;
+  margin: 0;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.media > img {
+  max-width: 50%;
+  display: block;
+  margin-left: 25%;
+}
+
+div {
+  border-radius: 8px;
+  background-color: #3B3E6D;
+  padding: 8px;
+  margin-bottom: 5px;
+}
+
+hr{
+  border-top: 1px solid #1F213A;
+  width: 100%;
+}
+
+.ruoskaLight {
+  background-color: #565B9F!important;
+}
+
+.bg_content{
+  background-color: #1F213A;
+}
+
+.ruoskButton{
+  background-color: #565B9F;
+  border: none;
+  box-shadow: 5px 5px rgba(0,0,0,0.3);
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.ruoskButton:hover{
+  background-color: #1F213A;
+  transition: 0.3s;
+}
+
+select, option, input, textarea{
+  background-color: #1F213A!important;
+  color: #f8f8f8!important;
+}
+
+button:focus{
+  outline:none;
+}
+
+.media{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.media-body{
+  width: 100%;
+}
+
+.media-body > small{
+  float: right;
+}
